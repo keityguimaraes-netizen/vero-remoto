@@ -23,6 +23,26 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
 .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.14em;color:#FFC1D8;text-transform:uppercase;text-align:right;}
 .headline{font-family:'Fredoka',sans-serif;font-weight:700;font-size:80px;color:#FFFFFF;line-height:0.95;margin-top:28px;letter-spacing:-0.01em;position:relative;z-index:2;}
 .subline{font-size:16.5px;color:#FFDDE9;margin-top:14px;max-width:560px;line-height:1.5;position:relative;z-index:2;}
+.conversao-box{background:#4A4A4A;padding:26px 64px 28px;position:relative;}
+.conversao-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px;}
+.conversao-titulo{font-family:'Fredoka',sans-serif;font-weight:600;font-size:19px;color:#fff;}
+.conversao-nota{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#C4C4C4;}
+.conversao-metricas{display:grid;grid-template-columns:repeat(7,1fr);gap:0 14px;}
+.conversao-metric{border-right:1px solid rgba(255,255,255,0.14);padding-right:10px;}
+.conversao-metric:last-child{border-right:none;}
+.conversao-metric-value{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;color:#fff;}
+.conversao-metric-value.accent{color:#FF9FBE;}
+.conversao-metric-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.03em;text-transform:uppercase;color:#C4C4C4;margin-top:3px;}
+.conversao-toggle{margin-top:18px;}
+.conversao-toggle summary{cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#fff;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);border-radius:10px;padding:9px 16px;list-style:none;user-select:none;display:inline-block;}
+.conversao-toggle summary::-webkit-details-marker{display:none;}
+.conversao-toggle summary::before{content:"▸ ";}
+.conversao-toggle[open] summary::before{content:"▾ ";}
+.conversao-tabela-wrap{margin-top:14px;overflow-x:auto;background:#fff;border-radius:12px;padding:4px;}
+.conversao-tabela{width:100%;border-collapse:collapse;font-family:'IBM Plex Mono',monospace;font-size:11.5px;}
+.conversao-tabela th{text-align:left;padding:10px 12px;color:var(--ink-soft);font-size:9.5px;text-transform:uppercase;letter-spacing:0.03em;border-bottom:1px solid var(--line);}
+.conversao-tabela td{padding:9px 12px;color:var(--ink);border-bottom:1px solid var(--line);}
+.conversao-tabela tr:last-child td{border-bottom:none;}
 .summary{background:var(--plum);padding:34px 64px 40px;display:grid;grid-template-columns:repeat(5,1fr);gap:26px 0;border-top:1px solid rgba(255,255,255,0.08);position:relative;}
 .summary.com-ocorrencias{padding-top:56px;}
 .summary-botoes{position:absolute;top:16px;right:64px;display:flex;gap:10px;}
@@ -36,6 +56,10 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
 .summary-value.accent{color:#FF7EA0;}
 .summary-sub{font-size:12.5px;color:#D9A8B8;margin-top:3px;}
 .summary-sub-small{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#D9A8B8;margin-top:4px;line-height:1.4;}
+.cor-valor-pos{color:#4ADE80 !important;}
+.cor-valor-neg{color:#FF6B6B !important;}
+.cor-valor-pos-tabela{color:var(--pos) !important;font-weight:600;}
+.cor-valor-neg-tabela{color:#D33A2F !important;font-weight:600;}
 .body{padding:48px 64px 20px;}
 .section-intro{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:22px;}
 .section-note-wrap{display:flex;align-items:center;gap:14px;}
@@ -176,10 +200,16 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
     <div class="headline">Setembro</div>
     <div class="subline">Resultados parciais de instalação e projeção de entrega por gestor e canal de vendas.</div>
   </div>
+  
 
   <div class="summary com-ocorrencias">
     <div class="summary-botoes"><a class="ocorrencias-btn" href="canais.html" target="_blank">📊 Detalhe canal de vendas</a></div>
     
+    <div class="summary-item">
+      <div class="summary-label">Projeção de entrega</div>
+      <div class="summary-value cor-valor-neg">98,74%</div>
+      
+    </div>
     <div class="summary-item">
       <div class="summary-label">Venda bruta</div>
       <div class="summary-value">842</div>
@@ -371,6 +401,11 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
         <div class="bar-caption">586 / 4.189 instaladas · falta 3.603</div>
       </div>
       <div class="site-metricas-grid">
+    <div class="site-metric-item">
+      <div class="site-metric-label">Projeção de entrega</div>
+      <div class="site-metric-value cor-valor-pos">104,53%</div>
+      
+    </div>
     <div class="site-metric-item">
       <div class="site-metric-label">Venda bruta</div>
       <div class="site-metric-value">600</div>
@@ -1337,6 +1372,11 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
       </div>
       <div class="site-metricas-grid">
     <div class="site-metric-item">
+      <div class="site-metric-label">Projeção de entrega</div>
+      <div class="site-metric-value cor-valor-neg">88,31%</div>
+      
+    </div>
+    <div class="site-metric-item">
       <div class="site-metric-label">Venda bruta</div>
       <div class="site-metric-value">242</div>
       <div class="site-metric-sub">Média DU: 80,67</div>
@@ -1809,7 +1849,7 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
     </div>
     
     <div class="footer-right">
-      Gerado automaticamente em 04/09/2026 às 10:14 · dados parciais
+      Gerado automaticamente em 04/09/2026 às 11:05 · dados parciais
       <div class="footer-views">👁 <span id="contador-acessos">···</span> visualizações</div>
     </div>
   </div>
