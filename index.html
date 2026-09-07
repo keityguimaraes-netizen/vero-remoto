@@ -27,12 +27,16 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
 .conversao-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px;}
 .conversao-titulo{font-family:'Fredoka',sans-serif;font-weight:600;font-size:19px;color:#fff;}
 .conversao-nota{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.08em;color:#C4C4C4;}
-.conversao-metricas{display:grid;grid-template-columns:repeat(7,1fr);gap:0 14px;}
-.conversao-metric{border-right:1px solid rgba(255,255,255,0.14);padding-right:10px;}
-.conversao-metric:last-child{border-right:none;}
+.conversao-metricas{display:flex;gap:22px;align-items:flex-start;}
+.conversao-metric{flex:0 0 auto;min-width:64px;border-right:1px solid rgba(255,255,255,0.14);padding-right:14px;}
 .conversao-metric-value{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;color:#fff;}
 .conversao-metric-value.accent{color:#FF9FBE;}
 .conversao-metric-label{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:0.03em;text-transform:uppercase;color:#C4C4C4;margin-top:3px;}
+.conversao-cluster{flex:1;display:flex;flex-direction:column;gap:10px;min-width:260px;}
+.conversao-cluster-apta{display:flex;gap:22px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.14);}
+.conversao-cluster-item{flex:1;}
+.conversao-cluster-value{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:15px;color:#fff;}
+.conversao-cluster-label{font-family:'IBM Plex Mono',monospace;font-size:8px;letter-spacing:0.02em;text-transform:uppercase;color:#C4C4C4;margin-top:2px;line-height:1.3;}
 .conversao-toggle{margin-top:18px;}
 .conversao-toggle summary{cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;font-weight:600;color:#fff;background:rgba(255,255,255,0.14);border:1px solid rgba(255,255,255,0.28);border-radius:10px;padding:9px 16px;list-style:none;user-select:none;display:inline-block;}
 .conversao-toggle summary::-webkit-details-marker{display:none;}
@@ -211,16 +215,24 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
       <div class="conversao-metric"><div class="conversao-metric-value">1.313</div><div class="conversao-metric-label">vbr</div></div>
       <div class="conversao-metric"><div class="conversao-metric-value">81</div><div class="conversao-metric-label">cancel</div></div>
       <div class="conversao-metric"><div class="conversao-metric-value">1.232</div><div class="conversao-metric-label">vliq</div></div>
-      <div class="conversao-metric"><div class="conversao-metric-value cor-valor-neg">26,12%</div><div class="conversao-metric-label">conversão total</div></div>
-      <div class="conversao-metric"><div class="conversao-metric-value cor-valor-neg">14,88%</div><div class="conversao-metric-label">conversão ecom</div></div>
-      <div class="conversao-metric"><div class="conversao-metric-value cor-valor-pos">87,02%</div><div class="conversao-metric-label">conversão remoto</div></div>
+      <div class="conversao-cluster">
+        <div class="conversao-cluster-total">
+          <div class="conversao-metric-value cor-valor-neg">26,12%</div>
+          <div class="conversao-metric-label">conversão total</div>
+        </div>
+        <div class="conversao-cluster-apta">
+          <div class="conversao-cluster-item"><div class="conversao-cluster-value ">—</div><div class="conversao-cluster-label">conversão apta total</div></div>
+          <div class="conversao-cluster-item"><div class="conversao-cluster-value cor-valor-neg">14,88%</div><div class="conversao-cluster-label">conversão apta ecommerce</div></div>
+          <div class="conversao-cluster-item"><div class="conversao-cluster-value cor-valor-pos">87,02%</div><div class="conversao-cluster-label">conversão apta remoto</div></div>
+        </div>
+      </div>
     </div>
     <details class="nivel-toggle conversao-toggle">
       <summary>Ver dia a dia (7)</summary>
       <div class="conversao-tabela-wrap">
         <table class="conversao-tabela">
           <thead>
-            <tr><th>Data</th><th>Demandas</th><th>VBR</th><th>Cancel</th><th>VLIQ</th><th>Conv. total</th><th>Conv. ecom</th><th>Conv. remoto</th></tr>
+            <tr><th>Data</th><th>Demandas</th><th>VBR</th><th>Cancel</th><th>VLIQ</th><th>Conv. total</th><th>Conv. apta total</th><th>Conv. apta ecom</th><th>Conv. apta remoto</th></tr>
           </thead>
           <tbody>
       <tr>
@@ -230,6 +242,7 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
         <td>16</td>
         <td>290</td>
         <td class="cor-valor-neg-tabela">21,80%</td>
+        <td class="">—</td>
         <td class="cor-valor-neg-tabela">6,06%</td>
         <td class="cor-valor-pos-tabela">70,42%</td>
       </tr>
@@ -240,6 +253,7 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
         <td>23</td>
         <td>240</td>
         <td class="cor-valor-neg-tabela">20,65%</td>
+        <td class="">—</td>
         <td class="cor-valor-neg-tabela">2,78%</td>
         <td class="cor-valor-neg-tabela">61,44%</td>
       </tr>
@@ -250,6 +264,7 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
         <td>9</td>
         <td>260</td>
         <td class="cor-valor-neg-tabela">21,47%</td>
+        <td class="">—</td>
         <td class="cor-valor-pos-tabela">71,88%</td>
         <td class="cor-valor-pos-tabela">69,10%</td>
       </tr>
@@ -260,6 +275,7 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
         <td>31</td>
         <td>202</td>
         <td class="cor-valor-pos-tabela">108,60%</td>
+        <td class="">—</td>
         <td class="cor-valor-neg-tabela">-3,70%</td>
         <td class="cor-valor-pos-tabela">2030,00%</td>
       </tr>
@@ -270,6 +286,7 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
         <td>2</td>
         <td>198</td>
         <td class="cor-valor-neg-tabela">25,92%</td>
+        <td class="">—</td>
         <td class="cor-valor-neg-tabela">0,00%</td>
         <td class="cor-valor-pos-tabela">83,90%</td>
       </tr>
@@ -280,6 +297,7 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
         <td>0</td>
         <td>42</td>
         <td class="cor-valor-pos-tabela">68,85%</td>
+        <td class="">—</td>
         <td class="cor-valor-neg-tabela">0,00%</td>
         <td class="">—</td>
       </tr>
@@ -289,6 +307,7 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
         <td>—</td>
         <td>—</td>
         <td>—</td>
+        <td class="">—</td>
         <td class="">—</td>
         <td class="">—</td>
         <td class="">—</td>
@@ -2086,7 +2105,7 @@ body{background:#E8E1E3;font-family:'Inter',sans-serif;display:flex;justify-cont
     </div>
     
     <div class="footer-right">
-      Gerado automaticamente em 07/09/2026 às 11:00 · dados parciais
+      Gerado automaticamente em 07/09/2026 às 12:14 · dados parciais
       <div class="footer-views">👁 <span id="contador-acessos">···</span> visualizações</div>
     </div>
   </div>
